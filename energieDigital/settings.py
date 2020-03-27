@@ -27,8 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'test.energiewerkbank.ch',
-    'www.test.energiewerkbank.ch',
+    'markstaler.pythonanywhere.com',
     ]
 
 
