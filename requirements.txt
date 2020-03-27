@@ -1,3 +1,4 @@
-bokeh==1.4.0   
-pandas==1.0.1   
-Django==3.0.3
+bokeh==2.0.0 
+django==3.0.3  
+pandas==1.0.3
+
