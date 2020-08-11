@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /home/pi/djangoProjekt
+python3 daqStart.py
+

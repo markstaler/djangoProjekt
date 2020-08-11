@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import subprocess
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,14 +26,24 @@ SECRET_KEY = '+re%qxl7e4tz&%q(u8ouk$a2esm9-=u$6)(6-64mljwyp0nj*v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+## Erfassen der IP-Adresse beim Raspberry
+try:
+    ipAll = subprocess.check_output('hostname -I', shell=True).decode('utf-8')
+    ip = ipAll[0:ipAll.find(' ')]
+except:
+    ip = '127.0.0.1'
+        
+
 ALLOWED_HOSTS = [
+    ip,
+    '146.136.90.64',
     '127.0.0.1',
     'markstaler.pythonanywhere.com',
     ]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
