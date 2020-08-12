@@ -1,29 +1,29 @@
 <!DOCTYPE HTML>
-<!-- Eventually by HTML5 UP -->
+<!-- Erweiterung des Template Eventually by HTML5 UP-->
 {% load static %}
 <html>
- <head>
- <title>Energie Digital</title>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
- <link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
- <!-- BOKEH -->
- <script type="text/javascript" src="{% static "bokeh-2.0.0.min.js" %}"></script>
- </head>
- <body class="is-preload">
- <!-- Header -->
- <header id="header">
- <h1>Energie Digital</h1>
- <p>Programmierbeispiel im CAS Energie digital zu Visualisierung mit Django</p>
- </header>
- <div style="background-color:rgba(0,0,0,0.5);padding: 20px">
- <form method="post" enctype="multipart/form-data">
- {% csrf_token %}
- <input type="number" step = 1 min = 1 max = 20 name="nCycle" value={{ nCycle }} style = color:blue>
- {{ chart|safe }}
- <form>
- </div>
- <!-- Scripts -->
- <script src="{% static "assets/js/main.js" %}"></script>
- </body>
+<head>
+    <title>Energie Digital</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+    <!-- BOKEH -->
+    <script type="text/javascript" src="{% static "bokeh-2.0.0.min.js" %}"></script>
+</head>
+
+<body>
+    <div style="background-color:rgba(0,0,0,0.5);padding: 20px">
+    <h1>Energie Digital</h1>
+    <p>Programmierbeispiel im CAS Energie digital zu Visualisierung mit Django</p>
+    
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="number" step = 1 min = 1 max = 20 name="nCycle" value={{ nCycle }} style = color:blue>
+    {{ chart|safe }}
+    <form>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="{% static "assets/js/main.js" %}"></script>
+</body>
 </html>

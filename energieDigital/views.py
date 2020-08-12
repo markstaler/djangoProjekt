@@ -36,7 +36,7 @@ def makeChart(nCycle):
     zeit = zeit.strftime('%Y-%m-%d')
     db = sqlite3.connect('dataDB.sqlite3')
     df = pd.read_sql_query('SELECT * FROM tabelle WHERE zeit>strftime("%Y-%m-%d","'+zeit+'")', db)
-    df = pd.read_sql_query('SELECT * FROM tabelle', db)
+#    df = pd.read_sql_query('SELECT * FROM tabelle', db)
     db.close() 
     
     df['zeit'] = pd.to_datetime(df['zeit'])
@@ -51,7 +51,7 @@ def makeChart(nCycle):
     pw = 1000
      
     ## Temperatur ##
-    p1 = figure(title='Temperatur', plot_width=pw, plot_height=ph, /
+    p1 = figure(title='Temperatur', plot_width=pw, plot_height=ph, \
                 x_axis_type='datetime', tooltips = tt, tools = werkzeuge)
     p1.line(x = 'zeit', y = 'temp', source = df, legend_label = 'Temperatur',  color='green')
     p1.xaxis.axis_label = 'Zeit'
@@ -60,7 +60,7 @@ def makeChart(nCycle):
     p1.toolbar.logo = None
        
     ## Rel.Feuchte ##
-    p2 = figure(title='Relative Feuchte', plot_width=pw, plot_height=ph, /
+    p2 = figure(title='Relative Feuchte', plot_width=pw, plot_height=ph, \
                 x_axis_type='datetime', tooltips = tt, tools = werkzeuge)
     p2.line(x = 'zeit', y = 'humi', source = df, legend_label = 'Rel. Feuchte',  color='blue')
     p2.xaxis.axis_label = 'Zeit'
@@ -70,7 +70,7 @@ def makeChart(nCycle):
     p2.x_range = p1.x_range
     
     ## Luftdruck ##
-    p3 = figure(title='Luftdruck', plot_width=pw, plot_height=ph, /
+    p3 = figure(title='Luftdruck', plot_width=pw, plot_height=ph, \
                 x_axis_type='datetime', tooltips = tt, tools = werkzeuge)
     p3.line(x = 'zeit', y = 'prea', source = df, legend_label = 'Luftdruck',  color='blue')
     p3.xaxis.axis_label = 'Zeit'
