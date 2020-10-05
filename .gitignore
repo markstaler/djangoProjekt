@@ -1,4 +1,5 @@
 .env
+ablage
 *.bat
 *.pyc
 __pycache__
